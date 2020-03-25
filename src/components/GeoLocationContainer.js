@@ -1,18 +1,22 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import MyMap from "./MapContainer";
 //location.Create to server
 
 class GeoLocation extends Component {
-  state = { message: "" };
+  state = { message: "", latitude: 0, longitude: 0, zoom: 13 };
 
   geoFindMe = () => {
     const success = position => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
 
-      let coordinates = `Latitude: ${latitude} Longitude: ${longitude}`;
-      console.log(coordinates);
+      const coordinates = `Latitude: ${latitude} Longitude: ${longitude}`;
+      console.log("this is position", position);
       this.setState({
-        message: coordinates
+        message: coordinates,
+        latitude: latitude,
+        longitude: longitude
       });
     };
 
@@ -21,6 +25,7 @@ class GeoLocation extends Component {
         message: `Unable to retrieve your location`
       });
     };
+
     if (!navigator.geolocation) {
       this.setState({
         message: "Geolocation is not supported by your browser"
@@ -39,8 +44,9 @@ class GeoLocation extends Component {
         <p>Click the button to get your coordinates.</p>
         <button onClick={() => setInterval(this.geoFindMe, 1000)}>
           Try It
-        </button>
+        </button>{" "}
         <p>{this.state.message}</p>
+        <MyMap state={this.state} />
       </div>
     );
   }
