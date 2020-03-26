@@ -5,7 +5,7 @@ class HomeContainer extends Component {
   render() {
     return (
       <div>
-        hi guys
+        <h1>ANDERHALVE METER</h1>
         <GeoLocation />
       </div>
     );

@@ -10,7 +10,6 @@ class App extends Component {
     return (
       <Provider store={store}>
         <main>
-          hellow world
           <HomeContainer />
         </main>
       </Provider>
