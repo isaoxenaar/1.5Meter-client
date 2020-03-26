@@ -4,7 +4,6 @@ import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 class MyMap extends Component {
   render() {
-    console.log("passed props", this.props.state);
     const position = [this.props.state.latitude, this.props.state.longitude];
 
     return (

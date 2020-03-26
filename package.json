@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "express": "^4.17.1",
     "leaflet": "^1.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -17,6 +18,8 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0",
     "superagent": "^5.2.2"
   },
   "scripts": {
