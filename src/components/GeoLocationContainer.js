@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import MyMap from "./MapContainer";
 import socketIOClient from "socket.io-client";
 
-//location.Create to server
-
 class GeoLocation extends Component {
   state = {
     message: "",
