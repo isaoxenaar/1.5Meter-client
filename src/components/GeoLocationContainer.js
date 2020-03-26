@@ -42,7 +42,7 @@ class GeoLocation extends Component {
     return (
       <div>
         <p>Click the button to get your coordinates.</p>
-        <button onClick={() => setInterval(this.geoFindMe, 1000)}>
+        <button onClick={() => setInterval(this.geoFindMe, 10000)}>
           Try It
         </button>{" "}
         <p>{this.state.message}</p>
