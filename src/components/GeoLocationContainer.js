@@ -9,11 +9,11 @@ class GeoLocation extends Component {
     latitude: 0,
     longitude: 0,
     zoom: 13,
-    endpoint: "https://ancient-taiga-80457.herokuapp.com/:20645",
+    endpoint: "https://ancient-taiga-80457.herokuapp.com/:49108",
     allCoordinates: {}
   };
 
-  socket = socketIOClient("https://ancient-taiga-80457.herokuapp.com/:20645");
+  socket = socketIOClient("https://ancient-taiga-80457.herokuapp.com/:49108");
 
   componentDidMount = () => {
     this.socket.on("all coordinates", cords => {
