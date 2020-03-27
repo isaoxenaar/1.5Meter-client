@@ -9,14 +9,18 @@ class GeoLocation extends Component {
     latitude: 0,
     longitude: 0,
     zoom: 13,
-    endpoint: "http://192.168.43.61:4001"
+    endpoint: "http://ancient-taiga-80457.herokuapp.com/:20645",
+    allCoordinates: {}
   };
 
-  socket = socketIOClient("http://192.168.43.61:4001");
+  socket = socketIOClient("http://ancient-taiga-80457.herokuapp.com/:20645");
 
   componentDidMount = () => {
     this.socket.on("all coordinates", cords => {
       console.log("from added", cords);
+      this.setState({
+        allCoordinates: cords
+      });
     });
   };
 
@@ -60,15 +64,19 @@ class GeoLocation extends Component {
   };
 
   render() {
+    console.log("in render", this.state.allCoordinates);
+    const array = Object.entries(this.state.allCoordinates);
+    console.log("in render array", array);
     return (
       <div>
         <p>
           click the button to get your coordinates and see where you are on the
           map.
         </p>
-        <p>{this.state.message}</p>
-        <MyMap state={this.state} />
         <button onClick={this.send}>find your location </button>
+        <p>{this.state.message}</p>
+        <MyMap allCoordinates={array} state={this.state} />
+        {/* <WarningContainer /> */}
       </div>
     );
   }
