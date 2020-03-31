@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Sound from "react-sound";
 
 function distance(lat1, lon1, lat2, lon2) {
   var R = 6371;
@@ -52,10 +53,10 @@ const testUsers = [
     }
   ]
 ];
+
 class WarningContainer extends Component {
   render() {
     const userId = this.props.userId;
-
     const realUsers = this.props.allCoordinates.filter(user => {
       return user[0] !== userId;
     });
@@ -66,8 +67,6 @@ class WarningContainer extends Component {
       return <div>no user id</div>;
     }
     const users = [...realUsers, ...testUsers];
-
-    console.log("users", users);
     const distances = users.map(user => {
       console.log("user", user, userWithId);
 
@@ -79,11 +78,26 @@ class WarningContainer extends Component {
       );
     });
     console.log("distances", distances);
-    return (
-      <div>
-        <h4>warning image</h4>
-      </div>
-    );
+    const fifteenAndLess = distances.filter(distance => {
+      return distance < 15;
+    });
+    if (!fifteenAndLess)
+      return (
+        <div>
+          <h4>You are doing awesome at keeping a distance</h4>
+        </div>
+      );
+    else {
+      return (
+        <div>
+          TO CLOSE STEP BACK
+          <Sound
+            url={process.env.PUBLIC_URL + "/cant-touch-this.mp3"}
+            playStatus="PLAYING"
+          />
+        </div>
+      );
+    }
   }
 }
 

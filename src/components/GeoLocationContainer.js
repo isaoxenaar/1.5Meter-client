@@ -70,18 +70,22 @@ class GeoLocation extends Component {
   };
 
   render() {
-    const array = Object.entries(this.state.allCoordinates);
-    console.log("in render array", array);
+    const arrayOfCoordinates = Object.entries(this.state.allCoordinates);
     return (
       <div>
         <p>
-          click the button to get your coordinates and see where you are on the
-          map.
+          <h2>
+            "find your location" to get your coordinates and find how close you
+            are to others
+          </h2>
         </p>
         <button onClick={this.send}>find your location </button>
         <p>{this.state.message}</p>
-        <MyMap allCoordinates={array} state={this.state} />
-        <WarningContainer allCoordinates={array} userId={this.state.userId} />
+        <WarningContainer
+          allCoordinates={arrayOfCoordinates}
+          userId={this.state.userId}
+        />
+        <MyMap allCoordinates={arrayOfCoordinates} state={this.state} />
       </div>
     );
   }
