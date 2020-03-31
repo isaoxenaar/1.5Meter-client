@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import MyMap from "./MapContainer";
 import socketIOClient from "socket.io-client";
+import WarningContainer from "./WarningContainer";
+import MyMap from "./MapContainer";
+//long button
 
 class GeoLocation extends Component {
   state = {
@@ -9,11 +11,14 @@ class GeoLocation extends Component {
     latitude: 0,
     longitude: 0,
     zoom: 13,
-    endpoint: "https://ancient-taiga-80457.herokuapp.com/",
-    allCoordinates: {}
+    endpoint: "http://localhost:4001",
+    //endpoint: "https://ancient-taiga-80457.herokuapp.com/",
+    allCoordinates: {},
+    userId: ""
   };
 
-  socket = socketIOClient("https://ancient-taiga-80457.herokuapp.com/");
+  //socket = socketIOClient("https://ancient-taiga-80457.herokuapp.com/");
+  socket = socketIOClient("http://localhost:4001");
 
   componentDidMount = () => {
     this.socket.on("all coordinates", cords => {
@@ -38,7 +43,8 @@ class GeoLocation extends Component {
       this.setState({
         message: coordinates,
         latitude: latitude,
-        longitude: longitude
+        longitude: longitude,
+        userId: this.socket.id
       });
     };
 
@@ -64,7 +70,6 @@ class GeoLocation extends Component {
   };
 
   render() {
-    console.log("in render", this.state.allCoordinates);
     const array = Object.entries(this.state.allCoordinates);
     console.log("in render array", array);
     return (
@@ -76,7 +81,7 @@ class GeoLocation extends Component {
         <button onClick={this.send}>find your location </button>
         <p>{this.state.message}</p>
         <MyMap allCoordinates={array} state={this.state} />
-        {/* <WarningContainer /> */}
+        <WarningContainer allCoordinates={array} userId={this.state.userId} />
       </div>
     );
   }
