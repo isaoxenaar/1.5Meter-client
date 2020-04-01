@@ -83,14 +83,14 @@ class WarningContainer extends Component {
     });
     if (!fifteenAndLess)
       return (
-        <div>
+        <div class="awesome">
           <h4>You are doing awesome at keeping a distance</h4>
         </div>
       );
     else {
       return (
-        <div>
-          TO CLOSE STEP BACK
+        <div class="warningdiv">
+          <h1 class="toclose">TO CLOSE STEP BACK</h1>
           <Sound
             url={process.env.PUBLIC_URL + "/cant-touch-this.mp3"}
             playStatus="PLAYING"

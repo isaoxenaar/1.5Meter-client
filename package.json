@@ -9,6 +9,7 @@
     "express": "^4.17.1",
     "geojson-world-map": "0.0.2",
     "leaflet": "^1.6.0",
+    "muicss": "^0.10.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-geolocated": "^3.0.1",

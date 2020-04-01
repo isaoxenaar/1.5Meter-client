@@ -5,10 +5,10 @@ import GeoLocation from "./GeoLocationContainer";
 class HomeContainer extends Component {
   render() {
     return (
-      <div>
-        <h1>ANDERHALVE METER</h1>
+      <main class="home">
+        <h1 class="hometitle">ANDERHALVE METER</h1>
         <GeoLocation />
-      </div>
+      </main>
     );
   }
 }

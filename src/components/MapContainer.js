@@ -29,26 +29,28 @@ class MyMap extends Component {
     console.log("popups", popUps);
 
     return (
-      <Map
-        center={position}
-        zoom={this.props.state.zoom}
-        style={{ width: "100%", height: "900px" }}
-      >
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <GeoJSON
-          data={worldGeoJSON}
-          style={() => ({
-            color: "#4a83ec",
-            weight: 0.5,
-            fillColor: "#D9B382",
-            fillOpacity: 0.5
-          })}
-        />
-        {popUps}
-      </Map>
+      <div class="map">
+        <Map
+          center={position}
+          zoom={this.props.state.zoom}
+          style={{ width: "100%", height: "900px" }}
+        >
+          <TileLayer
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <GeoJSON
+            data={worldGeoJSON}
+            style={() => ({
+              color: "#4a83ec",
+              weight: 0.5,
+              fillColor: "#D9B382",
+              fillOpacity: 0.5
+            })}
+          />
+          {popUps}
+        </Map>
+      </div>
     );
   }
 }

@@ -1,0 +1,38 @@
+/*
+home
+hometitle
+awesome
+warningdiv
+toclose
+map 
+loading
+button
+instruction
+geolocationdiv
+<div style="display:flex;justify-content:center;align-items:center;">Text Content</div>
+
+*/
+.homemain {
+  background-color: bisque;
+}
+.home {
+  background-color: bisque;
+}
+.hometitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  font-size: 2cm;
+}
+.map {
+  border-style: dotted;
+  border-color: rgb(251, 71, 0);
+  border-width: 1cm;
+}
+.instruction {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

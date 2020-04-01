@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import socketIOClient from "socket.io-client";
 import WarningContainer from "./WarningContainer";
 import MyMap from "./MapContainer";
+import Button from "muicss/lib/react/button";
+import Container from "muicss/lib/react/container";
+import Appbar from "muicss/lib/react/appbar";
+
 //long button
 
 class GeoLocation extends Component {
@@ -71,13 +75,22 @@ class GeoLocation extends Component {
   render() {
     const arrayOfCoordinates = Object.entries(this.state.allCoordinates);
     return (
-      <div>
-        <h2>
+      <div class="geolocationdiv">
+        <h2 class="instruction">
           "find your location" to get your coordinates and find how close you
           are to others
         </h2>
-        <button onClick={this.send}>find your location </button>
-        <p>{this.state.message}</p>
+        {/* <button class="button" onClick={this.send}>
+          find your location{" "}
+        </button> */}
+        <Appbar></Appbar>
+        <Container>
+          {" "}
+          <Button onClick={this.send} color="danger">
+            button
+          </Button>
+        </Container>
+        <p class="loading">{this.state.message}</p>
         <WarningContainer
           allCoordinates={arrayOfCoordinates}
           userId={this.state.userId}
