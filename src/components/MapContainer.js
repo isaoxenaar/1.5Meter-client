@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Map, TileLayer, Marker, Popup } from "react-leaflet";
+import { Map, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
+import worldGeoJSON from "geojson-world-map";
 
 class MyMap extends Component {
   render() {
@@ -36,6 +37,15 @@ class MyMap extends Component {
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <GeoJSON
+          data={worldGeoJSON}
+          style={() => ({
+            color: "#4a83ec",
+            weight: 0.5,
+            fillColor: "#D9B382",
+            fillOpacity: 0.5
+          })}
         />
         {popUps}
       </Map>

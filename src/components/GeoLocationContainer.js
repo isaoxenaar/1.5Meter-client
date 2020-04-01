@@ -8,15 +8,15 @@ import MyMap from "./MapContainer";
 class GeoLocation extends Component {
   state = {
     message: "",
-    latitude: 0,
-    longitude: 0,
-    zoom: 13,
+    latitude: 52.370216,
+    longitude: 4.895168,
+    zoom: 5,
     allCoordinates: {},
     userId: ""
   };
 
-  socket = socketIOClient("https://ancient-taiga-80457.herokuapp.com/");
-  //socket = socketIOClient("http://localhost:4001");
+  //socket = socketIOClient("https://ancient-taiga-80457.herokuapp.com/");
+  socket = socketIOClient("http://localhost:4001");
 
   componentDidMount = () => {
     this.socket.on("all coordinates", cords => {
@@ -42,7 +42,8 @@ class GeoLocation extends Component {
         message: coordinates,
         latitude: latitude,
         longitude: longitude,
-        userId: this.socket.id
+        userId: this.socket.id,
+        zoom: 15
       });
     };
 
