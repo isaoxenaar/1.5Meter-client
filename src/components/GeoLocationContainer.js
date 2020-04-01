@@ -11,14 +11,12 @@ class GeoLocation extends Component {
     latitude: 0,
     longitude: 0,
     zoom: 13,
-    endpoint: "http://localhost:4001",
-    //endpoint: "https://ancient-taiga-80457.herokuapp.com/",
     allCoordinates: {},
     userId: ""
   };
 
-  //socket = socketIOClient("https://ancient-taiga-80457.herokuapp.com/");
-  socket = socketIOClient("http://localhost:4001");
+  socket = socketIOClient("https://ancient-taiga-80457.herokuapp.com/");
+  //socket = socketIOClient("http://localhost:4001");
 
   componentDidMount = () => {
     this.socket.on("all coordinates", cords => {
@@ -73,12 +71,10 @@ class GeoLocation extends Component {
     const arrayOfCoordinates = Object.entries(this.state.allCoordinates);
     return (
       <div>
-        <p>
-          <h2>
-            "find your location" to get your coordinates and find how close you
-            are to others
-          </h2>
-        </p>
+        <h2>
+          "find your location" to get your coordinates and find how close you
+          are to others
+        </h2>
         <button onClick={this.send}>find your location </button>
         <p>{this.state.message}</p>
         <WarningContainer
