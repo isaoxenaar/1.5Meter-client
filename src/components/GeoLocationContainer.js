@@ -4,10 +4,9 @@ import socketIOClient from "socket.io-client";
 import WarningContainer from "./WarningContainer";
 import MyMap from "./MapContainer";
 import Button from "muicss/lib/react/button";
-import Container from "muicss/lib/react/container";
-import Appbar from "muicss/lib/react/appbar";
 
-//long button
+//socket = socketIOClient("https://ancient-taiga-80457.herokuapp.com/");
+export const socketConnection = socketIOClient("http://localhost:4001");
 
 class GeoLocation extends Component {
   state = {
@@ -19,12 +18,10 @@ class GeoLocation extends Component {
     userId: ""
   };
 
-  //socket = socketIOClient("https://ancient-taiga-80457.herokuapp.com/");
-  socket = socketIOClient("http://localhost:4001");
+  socket = socketConnection;
 
   componentDidMount = () => {
     this.socket.on("all coordinates", cords => {
-      console.log("from added", cords);
       this.setState({
         allCoordinates: cords
       });

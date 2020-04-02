@@ -3,50 +3,30 @@ import { Map, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
 import L from "leaflet";
 import worldGeoJSON from "geojson-world-map";
 
-export const GreenIcon = new L.Icon({
-  iconUrl: process.env.PUBLIC_URL + "leaf-green.png",
-  shadowUrl: process.env.PUBLIC_URL + "leaf-shadow.png",
-  iconSize: [38, 95],
-  shadowSize: [50, 64],
-  iconAnchor: [22, 94],
-  shadowAnchor: [4, 62],
-  popupAnchor: [-3, -76]
+const LeafIcon = L.Icon.extend({
+  options: {
+    shadowUrl: process.env.PUBLIC_URL + "leaf-shadow.png",
+    iconSize: [38, 95],
+    shadowSize: [50, 64],
+    iconAnchor: [22, 94],
+    shadowAnchor: [4, 62],
+    popupAnchor: [-3, -76]
+  }
 });
 
-export const OrangeIcon = new L.Icon({
-  iconUrl: process.env.PUBLIC_URL + "leaf-orange.png",
-  shadowUrl: process.env.PUBLIC_URL + "leaf-shadow.png",
-  iconSize: [38, 95],
-  shadowSize: [50, 64],
-  iconAnchor: [22, 94],
-  shadowAnchor: [4, 62],
-  popupAnchor: [-3, -76]
+export const greenIcon = new LeafIcon({
+  iconUrl: process.env.PUBLIC_URL + "leaf-green.png"
 });
-
-export const RedIcon = new L.Icon({
-  iconUrl: process.env.PUBLIC_URL + "leaf-red.png",
-  shadowUrl: process.env.PUBLIC_URL + "leaf-shadow.png",
-  iconSize: [38, 95],
-  shadowSize: [50, 64],
-  iconAnchor: [22, 94],
-  shadowAnchor: [4, 62],
-  popupAnchor: [-3, -76]
+export const redIcon = new LeafIcon({
+  iconUrl: process.env.PUBLIC_URL + "leaf-red.png"
 });
-
-export const UserIcon = new L.Icon({
+export const orangeIcon = new LeafIcon({
+  iconUrl: process.env.PUBLIC_URL + "leaf-red.png"
+});
+export const userIcon = new LeafIcon({
   iconUrl: process.env.PUBLIC_URL + "isa.jpg",
-  iconSize: [38, 38],
-  shadowSize: [50, 64],
-  iconAnchor: [22, 94],
-  shadowAnchor: [4, 62],
-  popupAnchor: [-3, -76]
+  shadowUrl: ""
 });
-
-// export const greenIcon = new LeafIcon({ iconUrl: "leaf-green.png" });
-// export const redIcon = new LeafIcon({ iconUrl: "leaf-red.png" });
-// export const orangeIcon = new LeafIcon({
-//   iconUrl: "leaf-red.png"
-// });
 
 class MyMap extends Component {
   render() {
@@ -58,10 +38,8 @@ class MyMap extends Component {
     );
     const popUps = evensList.map(user => {
       const position = [user[1].latitude, user[1].longitude];
-      console.log("position", position, evensList);
-
       return (
-        <Marker icon={UserIcon} position={position}>
+        <Marker icon={userIcon} position={position}>
           <Popup>
             hi there this is {user[0]}
             <br />
@@ -70,7 +48,6 @@ class MyMap extends Component {
         </Marker>
       );
     });
-    console.log("popups", popUps);
 
     return (
       <div class="map">

@@ -68,8 +68,6 @@ class WarningContainer extends Component {
     }
     const users = [...realUsers, ...testUsers];
     const distances = users.map(user => {
-      console.log("user", user, userWithId);
-
       return distance(
         userWithId[1].latitude,
         userWithId[1].longitude,
@@ -77,7 +75,6 @@ class WarningContainer extends Component {
         user[1].longitude
       );
     });
-    console.log("distances", distances);
     const fifteenAndLess = distances.filter(distance => {
       return distance < 15;
     });
