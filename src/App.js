@@ -4,17 +4,17 @@ import { Route } from "react-router-dom";
 import "./app.css";
 import store from "./store";
 import HomeContainer from "./components/HomeContainer";
-import LoginContainer from "./components/LoginContainer";
-import SignUpContainer from "./components/SignUpContainer";
+import StartContainer from "./components/StartContainer";
+import UserContainer from "./components/userContainer";
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <div class="home">
-          <HomeContainer />
-          <SignUpContainer />
-          <LoginContainer />
+          <Route exact path="/dashboard" component={UserContainer} />
+          <Route exact path="/home" component={HomeContainer} />
+          <Route exact path="/" component={StartContainer} />
         </div>
       </Provider>
     );
