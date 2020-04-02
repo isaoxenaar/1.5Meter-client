@@ -5,8 +5,10 @@ import WarningContainer from "./WarningContainer";
 import MyMap from "./MapContainer";
 import Button from "muicss/lib/react/button";
 
-//socket = socketIOClient("https://ancient-taiga-80457.herokuapp.com/");
-export const socketConnection = socketIOClient("http://localhost:4001");
+export const socketConnection = socketIOClient(
+  "https://ancient-taiga-80457.herokuapp.com/"
+);
+//export const socketConnection = socketIOClient("http://localhost:4001");
 
 class GeoLocation extends Component {
   state = {
