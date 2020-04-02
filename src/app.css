@@ -27,7 +27,7 @@ geolocationdiv
 }
 .map {
   border-style: dotted;
-  border-color: rgb(251, 71, 0);
+  border-color: rgb(255, 255, 255);
   border-width: 1cm;
 }
 .instruction {
@@ -35,4 +35,34 @@ geolocationdiv
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.userId {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.awesome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+.warningdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+
+.position {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
 }

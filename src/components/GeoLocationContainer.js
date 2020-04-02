@@ -79,18 +79,13 @@ class GeoLocation extends Component {
         <h2 class="instruction">
           "find your location" to get your coordinates and find how close you
           are to others
-        </h2>
-        {/* <button class="button" onClick={this.send}>
-          find your location{" "}
-        </button> */}
-        <Appbar></Appbar>
-        <Container>
-          {" "}
+        </h2>{" "}
+        <p class="button">
           <Button onClick={this.send} color="danger">
-            button
+            this is you!
           </Button>
-        </Container>
-        <p class="loading">{this.state.message}</p>
+        </p>
+        <p class="position">{this.state.message}</p>
         <WarningContainer
           allCoordinates={arrayOfCoordinates}
           userId={this.state.userId}

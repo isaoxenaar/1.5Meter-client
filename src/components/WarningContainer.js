@@ -64,7 +64,7 @@ class WarningContainer extends Component {
       return user[0] == userId;
     });
     if (!userWithId) {
-      return <div>no user id</div>;
+      return <div class="userId">click to find where you are</div>;
     }
     const users = [...realUsers, ...testUsers];
     const distances = users.map(user => {
