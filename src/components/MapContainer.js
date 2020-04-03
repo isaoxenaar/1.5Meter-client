@@ -38,10 +38,23 @@ class MapContainer extends Component {
       }
     );
     const others = this.props.distances;
-    // const greenLeavesList = others..map(user => {
-    // })
-    // const orangeLeavesList
-    // const redLeavesList
+    const greenLeavesList = others.filter(user => {
+      return user.distanceOther > 21;
+    });
+    const orangeLeavesList = others.filter(user => {
+      return user.distanceOther < 21;
+    });
+    const redLeavesList = others.filter(user => {
+      return user.distanceOther < 16;
+    });
+    // const thisUserPopUp = <Marker icon={userIcon} position={position}>
+    //       <Popup>
+    //         hi there this is {user[0]}
+    //         <br />
+    //         dont come to close to me, 1,5 meters!{" "}
+    //       </Popup>
+    //     </Marker>
+
     const popUps = evensList.map(user => {
       const position = [user[1].latitude, user[1].longitude];
       return (
