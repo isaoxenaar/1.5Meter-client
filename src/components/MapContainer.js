@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Map, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
 import L from "leaflet";
 import worldGeoJSON from "geojson-world-map";
@@ -28,7 +29,7 @@ export const userIcon = new LeafIcon({
   shadowUrl: ""
 });
 
-class MyMap extends Component {
+class MapContainer extends Component {
   render() {
     const position = [this.props.state.latitude, this.props.state.longitude];
     const evensList = this.props.allCoordinates.filter(
@@ -36,6 +37,11 @@ class MyMap extends Component {
         return index % 2 === 0;
       }
     );
+    const others = this.props.distances;
+    // const greenLeavesList = others..map(user => {
+    // })
+    // const orangeLeavesList
+    // const redLeavesList
     const popUps = evensList.map(user => {
       const position = [user[1].latitude, user[1].longitude];
       return (
@@ -48,7 +54,7 @@ class MyMap extends Component {
         </Marker>
       );
     });
-
+    console.log("is this the distances prop", this.props.distances);
     return (
       <div class="map">
         <Map
@@ -70,9 +76,21 @@ class MyMap extends Component {
             })}
           />
           {popUps}
+          {/* {greenPopUps}
+          {orangePopUps}
+          {redPopUps}
+          {thisUserPopUp} */}
         </Map>
       </div>
     );
   }
 }
-export default MyMap;
+
+function mapStateToProps(state) {
+  return {
+    distances: state.distances,
+    loggedInUser: state.loggedInUser
+  };
+}
+
+export default connect(mapStateToProps)(MapContainer);

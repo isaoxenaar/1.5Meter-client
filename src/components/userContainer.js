@@ -15,6 +15,7 @@ class UserContainer extends Component {
           covid-19 from spreading.
         </h4>
         <h5>these are some video's to inform yourself on covid-19 </h5>
+        <p>change your name, song, </p>
       </main>
     );
   }

@@ -5,6 +5,11 @@ geolocationdiv
 signup
 
 */
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .whitebar {
   border-style: solid;
   border-color: rgb(255, 255, 255);
@@ -81,7 +86,7 @@ signup
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(255, 255, 255);
+  color: rgb(255, 62, 4);
 }
 
 .position {

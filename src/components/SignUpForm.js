@@ -29,7 +29,7 @@ export default class SignUpForm extends React.Component {
               type="text"
             />{" "}
           </label>
-          <Button color="danger">Sign Up</Button>
+          <Button color="white">Sign Up</Button>
         </form>
       </div>
     );

@@ -79,7 +79,7 @@ class GeoLocation extends Component {
           get your coordinates and find how close you are to others
         </h2>{" "}
         <p class="button">
-          <Button onClick={this.send} color="danger">
+          <Button onClick={this.send} color="white">
             start tracking
           </Button>
         </p>

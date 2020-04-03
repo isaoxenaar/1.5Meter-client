@@ -1,8 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Route } from "react-router-dom";
 import LoginForm from "./LoginForm";
-import HomeContainer from "./HomeContainer";
 import { checkLogin } from "../actions/loginAction";
 
 class LoginContainer extends React.Component {

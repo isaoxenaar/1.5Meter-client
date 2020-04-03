@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
-import signedUpUsers from "./loginReducer";
+import distances from "./coordinatesReducer";
 import loggedInUser from "./loginReducer";
 
 export default combineReducers({
+  distances,
   loggedInUser
 });

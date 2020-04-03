@@ -28,7 +28,7 @@ export default class LoginForm extends React.Component {
               type="text"
             />{" "}
           </label>
-          <Button color="danger">Login</Button>
+          <Button color="white">Login</Button>
         </form>
       </div>
     );
