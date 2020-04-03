@@ -1,7 +1,7 @@
 import React from "react";
-import Form from "muicss/lib/react/form";
-import Input from "muicss/lib/react/input";
-import Textarea from "muicss/lib/react/textarea";
+// import Form from "muicss/lib/react/form";
+// import Input from "muicss/lib/react/input";
+// import Textarea from "muicss/lib/react/textarea";
 import Button from "muicss/lib/react/button";
 
 export default class SignUpForm extends React.Component {
@@ -10,17 +10,17 @@ export default class SignUpForm extends React.Component {
       <div class="signupdiv">
         <form onSubmit={this.props.onSubmit}>
           <label>
-            Signup email{" "}
+            Signup
             <input
               placeholder="email"
               name="email"
               onChange={this.props.onChange}
               value={this.props.values.email}
               type="text"
-            />{" "}
+            />
+            {"       "}
           </label>
           <label>
-            Signup password{" "}
             <input
               placeholder="password"
               name="password"
@@ -29,7 +29,7 @@ export default class SignUpForm extends React.Component {
               type="text"
             />{" "}
           </label>
-          <button>Sign Up</button>
+          <Button color="danger">Sign Up</Button>
         </form>
       </div>
     );

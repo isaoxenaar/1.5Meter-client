@@ -5,8 +5,39 @@ geolocationdiv
 signup
 
 */
-.homemain {
+.whitebar {
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  border-width: 1cm;
+  color: rgb(255, 255, 255);
+}
+.introduction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+.logindiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+.signupdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+.start {
   background-color: bisque;
+}
+.starttitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  font-size: 2cm;
 }
 .home {
   background-color: bisque;

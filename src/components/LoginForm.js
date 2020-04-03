@@ -1,13 +1,15 @@
 import React from "react";
+import Button from "muicss/lib/react/button";
+
 //add reset button
 
 export default class LoginForm extends React.Component {
   render() {
     return (
-      <main>
+      <div class="logindiv">
         <form onSubmit={this.props.onSubmit}>
           <label>
-            Login email{" "}
+            Login{" "}
             <input
               placeholder="email"
               name="email"
@@ -16,8 +18,8 @@ export default class LoginForm extends React.Component {
               type="text"
             />
           </label>
+          {"       "}
           <label>
-            Login password{" "}
             <input
               placeholder="password"
               name="password"
@@ -26,9 +28,9 @@ export default class LoginForm extends React.Component {
               type="text"
             />{" "}
           </label>
-          <button>Login</button>
+          <Button color="danger">Login</Button>
         </form>
-      </main>
+      </div>
     );
   }
 }

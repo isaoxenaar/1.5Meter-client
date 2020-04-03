@@ -5,10 +5,10 @@ import WarningContainer from "./WarningContainer";
 import MyMap from "./MapContainer";
 import Button from "muicss/lib/react/button";
 
-export const socketConnection = socketIOClient(
-  "https://ancient-taiga-80457.herokuapp.com/"
-);
-//export const socketConnection = socketIOClient("http://localhost:4001");
+// export const socketConnection = socketIOClient(
+//   "https://ancient-taiga-80457.herokuapp.com/"
+// );
+export const socketConnection = socketIOClient("http://localhost:4001");
 
 class GeoLocation extends Component {
   state = {
@@ -76,12 +76,11 @@ class GeoLocation extends Component {
     return (
       <div class="geolocationdiv">
         <h2 class="instruction">
-          "find your location" to get your coordinates and find how close you
-          are to others
+          get your coordinates and find how close you are to others
         </h2>{" "}
         <p class="button">
           <Button onClick={this.send} color="danger">
-            this is you!
+            start tracking
           </Button>
         </p>
         <p class="position">{this.state.message}</p>

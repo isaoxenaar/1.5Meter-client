@@ -20,7 +20,6 @@ class SignUpContainer extends React.Component {
   render() {
     return (
       <div>
-        <h3>Sign Up, to start adding your own events, tickets and comments.</h3>
         <SignUpForm
           onSubmit={this.onSubmit}
           onChange={this.onChange}
