@@ -37,6 +37,7 @@ class MapContainer extends Component {
         return index % 2 === 0;
       }
     );
+
     // const others = this.props.theOthers;
     // const greenLeavesList = others.filter(user => {
     //   return user.distanceOther > 21;
@@ -60,7 +61,7 @@ class MapContainer extends Component {
     const popUps = evensList.map(user => {
       const position = [user[1].latitude, user[1].longitude];
       return (
-        <Marker icon={userIcon} position={position}>
+        <Marker icon={greenIcon} position={position}>
           <Popup>
             hi there this is {user[0]}
             <br />
