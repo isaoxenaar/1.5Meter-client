@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import socketIOClient from "socket.io-client";
 import WarningContainer from "./WarningContainer";
 import MyMap from "./MapContainer";

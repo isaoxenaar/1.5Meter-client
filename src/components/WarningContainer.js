@@ -18,43 +18,6 @@ function distance(lat1, lon1, lat2, lon2) {
   var meters = d * 1000;
   return meters;
 }
-const testUsers = [
-  [
-    "user1",
-    {
-      latitude: 52.359264,
-      longitude: 4.863403
-    }
-  ],
-  [
-    "user2",
-    {
-      latitude: 52.354441,
-      longitude: 4.870268
-    }
-  ],
-  [
-    "user3",
-    {
-      latitude: 52.354441,
-      longitude: 4.870268
-    }
-  ],
-  [
-    "user4",
-    {
-      latitude: 52.361306,
-      longitude: 4.888038
-    }
-  ],
-  [
-    "user5",
-    {
-      latitude: 52.341754,
-      longitude: 4.877734
-    }
-  ]
-];
 
 class WarningContainer extends Component {
   // onWarning = warning => {
@@ -83,8 +46,7 @@ class WarningContainer extends Component {
     if (!userWithId) {
       return <div class="userId">click to find where you are</div>;
     }
-    const users = [...realUsers, ...testUsers];
-    const theOthers = users.map(user => {
+    const theOthers = realUsers.map(user => {
       const position = [user[1].latitude, user[1].longitude];
       const theOther = {
         distanceOther: distance(
@@ -98,6 +60,7 @@ class WarningContainer extends Component {
       return theOther;
     });
     console.log("the others", theOthers);
+
     this.props.getDistances(theOthers);
     const distances = theOthers.map(other => {
       return other.distanceOther;
@@ -124,7 +87,6 @@ class WarningContainer extends Component {
             url={process.env.PUBLIC_URL + "/cant-touch-this.mp3"}
             playStatus="PLAYING"
           />
-          create a warning. datenow, userId, targetId.
         </div>
       );
     }

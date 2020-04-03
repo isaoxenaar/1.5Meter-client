@@ -7,7 +7,6 @@ class HomeContainer extends Component {
   render() {
     return (
       <main class="home">
-        counter for the leaves, green red, orange.
         <h1 class="hometitle">ANDERHALVE METER</h1>
         <GeoLocation />
         <Link class="link" to="/dashboard">

@@ -37,16 +37,18 @@ class MapContainer extends Component {
         return index % 2 === 0;
       }
     );
-    const others = this.props.distances;
-    const greenLeavesList = others.filter(user => {
-      return user.distanceOther > 21;
-    });
-    const orangeLeavesList = others.filter(user => {
-      return user.distanceOther < 21;
-    });
-    const redLeavesList = others.filter(user => {
-      return user.distanceOther < 16;
-    });
+    // const others = this.props.theOthers;
+    // const greenLeavesList = others.filter(user => {
+    //   return user.distanceOther > 21;
+    // });
+    // const orangeLeavesList = others.filter(user => {
+    //   return user.distanceOther < 21 && user.distanceOther > 15;
+    // });
+    // const redLeavesList = others.filter(user => {
+    //   return user.distanceOther < 16;
+    // });
+
+    //const greenPopUps = greenLeavesList.map();
     // const thisUserPopUp = <Marker icon={userIcon} position={position}>
     //       <Popup>
     //         hi there this is {user[0]}
