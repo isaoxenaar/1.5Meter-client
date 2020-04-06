@@ -29,6 +29,24 @@ export default class SignUpForm extends React.Component {
               type="text"
             />{" "}
           </label>
+          <label>
+            <input
+              placeholder="username"
+              name="username"
+              onChange={this.props.onChange}
+              value={this.props.values.username}
+              type="text"
+            />{" "}
+          </label>
+          <label>
+            <input
+              placeholder="profileUrl"
+              name="profileUrl"
+              onChange={this.props.onChange}
+              value={this.props.values.profileUrl}
+              type="text"
+            />{" "}
+          </label>
           <Button color="white">Sign Up</Button>
         </form>
       </div>

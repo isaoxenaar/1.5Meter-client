@@ -11,7 +11,7 @@ class SignUpContainer extends React.Component {
     this.props.addUser(this.state);
     this.setState({
       username: "",
-      pictureUrl: "",
+      profileUrl: "",
       email: "",
       password: ""
     });

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import socketIOClient from "socket.io-client";
+import { connect } from "react-redux";
 import WarningContainer from "./WarningContainer";
 import MyMap from "./MapContainer";
 import Button from "muicss/lib/react/button";
+import { getDistances } from "../actions/otherUsersAction";
 
 // export const socketConnection = socketIOClient(
 //   "https://ancient-taiga-80457.herokuapp.com/"
@@ -88,7 +90,38 @@ class GeoLocation extends Component {
 
   render() {
     const arrayOfCoordinates = Object.entries(this.state.allCoordinates);
+    const userId = this.state.userId;
 
+    const realUsers = arrayOfCoordinates.filter(user => {
+      return user[0] !== userId;
+    });
+    const userWithId = arrayOfCoordinates.find(user => {
+      return user[0] == userId;
+    });
+    // if (!userWithId) {
+    //   return (
+    //     <div class="userId">load location by clicking the tracking button</div>
+    //   );
+    // }
+
+    const theOthers = realUsers.map(user => {
+      const position = [user[1].latitude, user[1].longitude];
+      const theOther = {
+        distanceOther: distance(
+          userWithId[1].latitude,
+          userWithId[1].longitude,
+          user[1].latitude,
+          user[1].longitude
+        ),
+        locationOther: position
+      };
+      return theOther;
+    });
+
+    console.log("the others", theOthers);
+    const fifteenAndLess = theOthers.filter(other => {
+      return other.distanceOther < 15;
+    });
     return (
       <div class="geolocationdiv">
         <h2 class="instruction">
@@ -103,11 +136,30 @@ class GeoLocation extends Component {
         <WarningContainer
           allCoordinates={arrayOfCoordinates}
           userId={this.state.userId}
+          fifteenAndLess={fifteenAndLess}
         />
-        <MyMap allCoordinates={arrayOfCoordinates} state={this.state} />
+        <div className="counter">
+          <img src="leaf-green.png" hspace="250" /> 1
+          <img src="leaf-orange.png" hspace="250" /> 1
+          <img src="leaf-red.png" hspace="250" /> 1
+        </div>
+        <MyMap
+          theOthers={theOthers}
+          allCoordinates={arrayOfCoordinates}
+          state={this.state}
+        />
       </div>
     );
   }
 }
 
-export default GeoLocation;
+const mapDispatchToProps = { getDistances };
+
+function mapStateToProps(state) {
+  return {
+    distances: state.distances,
+    loggedInUser: state.loggedInUser
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GeoLocation);

@@ -1,6 +1,5 @@
 import request from "superagent";
 import { baseUrl } from "./constants";
-import { socketConnection } from "../components/GeoLocationContainer";
 
 export const ADD_USER = "ADD_USER";
 

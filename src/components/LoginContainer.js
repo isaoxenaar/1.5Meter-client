@@ -9,6 +9,10 @@ class LoginContainer extends React.Component {
   onSubmit = event => {
     event.preventDefault();
     this.props.checkLogin(this.state);
+    this.setState({
+      email: "",
+      password: ""
+    });
   };
 
   onChange = event => {

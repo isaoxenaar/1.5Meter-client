@@ -7,7 +7,7 @@ import HomeContainer from "./HomeContainer";
 
 class StartContainer extends Component {
   componentDidMount() {
-    document.body.style.backgroundColor = "bisque";
+    document.body.style.backgroundColor = "white";
   }
   render() {
     if (this.props.loggedInUser.jwt) {
@@ -15,7 +15,6 @@ class StartContainer extends Component {
     } else {
       return (
         <main class="start">
-          <div class="whitebar"> </div>
           <h1 class="starttitle">ANDERHALVE METER</h1>
           <div>
             <h4 class="introduction">

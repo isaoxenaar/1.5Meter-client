@@ -5,7 +5,7 @@ import "./app.css";
 import store from "./store";
 import HomeContainer from "./components/HomeContainer";
 import StartContainer from "./components/StartContainer";
-import UserContainer from "./components/userContainer";
+import UserContainer from "./components/UserContainer";
 
 class App extends Component {
   render() {

@@ -5,6 +5,44 @@ geolocationdiv
 signup
 
 */
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.name {
+  color: rgb(241, 64, 20);
+}
+.welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+
+.video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.usermain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+.usertitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  font-size: 2cm;
+}
 .link {
   display: flex;
   justify-content: center;

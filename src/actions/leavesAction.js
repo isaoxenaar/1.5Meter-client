@@ -6,12 +6,6 @@ function allDistances(payload) {
     payload
   };
 }
-
-// export const getDistances = theOthers => {
-//   const action = allDistances(theOthers);
-//   console.log("this is others in action", theOthers);
-//   return action;
-// };
 export const getDistances = theOthers => (dispatch, getState) => {
   const state = getState();
 

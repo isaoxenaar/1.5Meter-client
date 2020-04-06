@@ -1,10 +1,11 @@
 import { combineReducers } from "redux";
-import distances from "./coordinatesReducer";
+import others from "./othersReducer";
 import loggedInUser from "./loginReducer";
-//import signed
+import signedUpUsers from "./signedUpReducer";
 
 export default combineReducers({
-  distances,
-  loggedInUser
-  //signedUpUsers
+  others,
+  loggedInUser,
+  signedUpUsers
+  //warnings
 });
