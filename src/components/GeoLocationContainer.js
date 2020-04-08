@@ -4,11 +4,10 @@ import { connect } from "react-redux";
 import WarningContainer from "./WarningContainer";
 import MyMap from "./MapContainer";
 import Button from "muicss/lib/react/button";
-import { getDistances } from "../actions/otherUsersAction";
-
 // export const socketConnection = socketIOClient(
 //   "https://ancient-taiga-80457.herokuapp.com/"
 // );
+
 export const socketConnection = socketIOClient("http://localhost:4001");
 
 function distance(lat1, lon1, lat2, lon2) {
@@ -98,11 +97,6 @@ class GeoLocation extends Component {
     const userWithId = arrayOfCoordinates.find(user => {
       return user[0] == userId;
     });
-    // if (!userWithId) {
-    //   return (
-    //     <div class="userId">load location by clicking the tracking button</div>
-    //   );
-    // }
 
     const theOthers = realUsers.map(user => {
       const position = [user[1].latitude, user[1].longitude];
@@ -139,9 +133,9 @@ class GeoLocation extends Component {
           fifteenAndLess={fifteenAndLess}
         />
         <div className="counter">
-          <img src="leaf-green.png" hspace="250" /> 1
-          <img src="leaf-orange.png" hspace="250" /> 1
-          <img src="leaf-red.png" hspace="250" /> 1
+          <img src="leaf-green.png" hspace="250" />
+          <img src="leaf-orange.png" hspace="250" />
+          <img src="leaf-red.png" hspace="250" />
         </div>
         <MyMap
           theOthers={theOthers}
@@ -153,11 +147,10 @@ class GeoLocation extends Component {
   }
 }
 
-const mapDispatchToProps = { getDistances };
+const mapDispatchToProps = {};
 
 function mapStateToProps(state) {
   return {
-    distances: state.distances,
     loggedInUser: state.loggedInUser
   };
 }

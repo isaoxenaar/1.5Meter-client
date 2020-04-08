@@ -30,6 +30,7 @@ export const userIcon = new LeafIcon({
 });
 
 class MapContainer extends Component {
+  componentDidMount;
   render() {
     const position = [this.props.state.latitude, this.props.state.longitude];
     // const evensList = this.props.allCoordinates.filter(

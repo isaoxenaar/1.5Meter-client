@@ -6,8 +6,11 @@ import { checkLogin } from "../actions/loginAction";
 class LoginContainer extends React.Component {
   state = { email: "", password: "" };
 
+  message = "this user is not signedUp, sign up first";
   onSubmit = event => {
     event.preventDefault();
+    // const signedUpmap
+    // if()
     this.props.checkLogin(this.state);
     this.setState({
       email: "",

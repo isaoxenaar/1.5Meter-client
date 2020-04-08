@@ -7,16 +7,18 @@ class WarningContainer extends Component {
   onWarning = (now, position) => {
     this.props.createWarning({
       time: now,
-      location: position,
+      latitude: position[0],
+      longitude: position[1],
       targetId: ""
     });
   };
 
   render() {
-    if (!this.props.fifteenAndLess)
+    console.log("fifteenandless", this.props.fifteenAndLess.length);
+    if (this.props.fifteenAndLess.length === 0)
       return (
         <div class="awesome">
-          <h4>You are doing awesome at keeping a distance</h4>
+          <h1>You are doing awesome at keeping a distance</h1>
         </div>
       );
     else {

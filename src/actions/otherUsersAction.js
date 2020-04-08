@@ -1,16 +1,17 @@
-export const ALL_DISTANCES = "ALL_DISTANCES";
+export const ALL_OTHERS = "ALL_OTHERS";
 
-function allDistances(payload) {
+function allOthers(payload) {
   return {
-    type: ALL_DISTANCES,
+    type: ALL_OTHERS,
     payload
   };
 }
-export const getDistances = theOthers => (dispatch, getState) => {
+export const getOthers = (red, orange, green) => (dispatch, getState) => {
   const state = getState();
+  const theOthers = { red: red, orange: orange, green: green };
 
-  if (!state.distances.length) {
-    const action = allDistances(theOthers);
+  if (!state.others.length) {
+    const action = allOthers(theOthers);
     dispatch(action);
   }
 };

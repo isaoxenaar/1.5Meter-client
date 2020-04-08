@@ -17,6 +17,7 @@ export const checkLogin = data => dispatch => {
     .post(`${baseUrl}/login`)
     .send(data)
     .then(response => {
+      console.log("message", response);
       const action = newLogin(response.body);
       dispatch(action);
       socketConnection.emit("user login", { userId: response.body.userId });
