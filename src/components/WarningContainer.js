@@ -44,7 +44,6 @@ const mapDispatchToProps = { createWarning };
 
 function mapStateToProps(state) {
   return {
-    distances: state.distances,
     loggedInUser: state.loggedInUser
   };
 }

@@ -5,6 +5,9 @@ geolocationdiv
 signup
 
 */
+.warningsList {
+  color: rgb(241, 64, 20);
+}
 .counter {
   display: flex;
   justify-content: center;

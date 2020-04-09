@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 import WarningContainer from "./WarningContainer";
 import MyMap from "./MapContainer";
 import Button from "muicss/lib/react/button";
+
 // export const socketConnection = socketIOClient(
 //   "https://ancient-taiga-80457.herokuapp.com/"
 // );
-
 export const socketConnection = socketIOClient("http://localhost:4001");
 
 function distance(lat1, lon1, lat2, lon2) {
@@ -95,9 +95,9 @@ class GeoLocation extends Component {
       return user[0] !== userId;
     });
     const userWithId = arrayOfCoordinates.find(user => {
+      console.log(user[0], userId);
       return user[0] == userId;
     });
-
     const theOthers = realUsers.map(user => {
       const position = [user[1].latitude, user[1].longitude];
       const theOther = {
@@ -112,38 +112,42 @@ class GeoLocation extends Component {
       return theOther;
     });
 
-    console.log("the others", theOthers);
     const fifteenAndLess = theOthers.filter(other => {
       return other.distanceOther < 15;
     });
-    return (
-      <div class="geolocationdiv">
-        <h2 class="instruction">
-          get your coordinates and find how close you are to others
-        </h2>{" "}
+    if (!userWithId) {
+      return (
         <p class="button">
           <Button onClick={this.send} color="white">
             start tracking
           </Button>
         </p>
-        <p class="position">{this.state.message}</p>
-        <WarningContainer
-          allCoordinates={arrayOfCoordinates}
-          userId={this.state.userId}
-          fifteenAndLess={fifteenAndLess}
-        />
-        <div className="counter">
-          <img src="leaf-green.png" hspace="250" />
-          <img src="leaf-orange.png" hspace="250" />
-          <img src="leaf-red.png" hspace="250" />
+      );
+    } else {
+      return (
+        <div class="geolocationdiv">
+          <h2 class="instruction">
+            get your coordinates and find how close you are to others
+          </h2>{" "}
+          <p class="position">{this.state.message}</p>
+          <WarningContainer
+            allCoordinates={arrayOfCoordinates}
+            userId={this.state.userId}
+            fifteenAndLess={fifteenAndLess}
+          />
+          <div className="counter">
+            <img src="leaf-green.png" hspace="250" />
+            <img src="leaf-orange.png" hspace="250" />
+            <img src="leaf-red.png" hspace="250" />
+          </div>
+          <MyMap
+            theOthers={theOthers}
+            allCoordinates={arrayOfCoordinates}
+            state={this.state}
+          />
         </div>
-        <MyMap
-          theOthers={theOthers}
-          allCoordinates={arrayOfCoordinates}
-          state={this.state}
-        />
-      </div>
-    );
+      );
+    }
   }
 }
 
