@@ -38,71 +38,59 @@ class MapContainer extends Component {
     //     return index % 2 === 0;
     //   }
     // );
-    console.log("the others in map", this.props.theOthers);
-
-    const others = this.props.theOthers;
-    const greenLeavesList = others.filter(user => {
-      return user.distanceOther > 21;
-    });
-    const orangeLeavesList = others.filter(user => {
-      return user.distanceOther < 21 && user.distanceOther > 15;
-    });
-    const redLeavesList = others.filter(user => {
-      return user.distanceOther < 16;
-    });
-    console.log("redleaves", redLeavesList);
-
-    const redPopUps = redLeavesList.map(leave => {
+    console.log("the red, green and orange in map", this.props.leaves);
+    const leaves = this.props.leaves;
+    const redPopUps = leaves.red.map(leave => {
       const position = [leave.locationOther[0], leave.locationOther[1]];
       return (
         <Marker icon={redIcon} position={position}>
           <Popup>
             hi there!
             <br />
-            sorry I am to close{" "}
+            were to close. lets take a step back.{" "}
           </Popup>
         </Marker>
       );
     });
 
-    const orangePopUps = orangeLeavesList.map(leave => {
-      const postiton = [leave.locationOther[0], leave.locationOther[1]];
+    const orangePopUps = leaves.orange.map(leave => {
+      const position = [leave.locationOther[0], leave.locationOther[1]];
       return (
         <Marker icon={orangeIcon} position={position}>
           <Popup>
             hi there!
             <br />
-            sorry I am to close{" "}
+            watch out, youre getting kind of close to this person{" "}
           </Popup>
         </Marker>
       );
     });
 
-    const greenPopUps = greenLeavesList.map(leave => {
-      const postiton = [leave.locationOther[0], leave.locationOther[1]];
+    const greenPopUps = leaves.green.map(leave => {
+      const position = [leave.locationOther[0], leave.locationOther[1]];
       return (
         <Marker icon={greenIcon} position={position}>
           <Popup>
-            hi there!
+            keep up the good work!
             <br />
-            sorry I am to close{" "}
+            this person is at a good distance
           </Popup>
         </Marker>
       );
     });
-
-    // const popUps = evensList.map(user => {
-    //   const position = [user[1].latitude, user[1].longitude];
-    //   return (
-    //     <Marker icon={greenIcon} position={position}>
-    //       <Popup>
-    //         hi there this is {user[0]}
-    //         <br />
-    //         dont come to close to me, 1,5 meters!{" "}
-    //       </Popup>
-    //     </Marker>
-    //   );
-    // });
+    console.log("userwithid", this.props.userWithId);
+    const youPopUp = (
+      <Marker
+        icon={this.props.thisUser.pictureUrl}
+        position={this.props.thisUserLocation}
+      >
+        <Popup>
+          this is you, {this.props.thisUser.username}!
+          <br />
+          take good care and stay 1.5 meters away from others.
+        </Popup>
+      </Marker>
+    );
     return (
       <div class="map">
         <Map
@@ -126,6 +114,7 @@ class MapContainer extends Component {
           {redPopUps}
           {greenPopUps}
           {orangePopUps}
+          {youPopUp}
         </Map>
       </div>
     );
@@ -134,8 +123,8 @@ class MapContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    distances: state.distances,
-    loggedInUser: state.loggedInUser
+    loggedInUser: state.loggedInUser,
+    sigedUpUsers: state.sigedUpUsers
   };
 }
 

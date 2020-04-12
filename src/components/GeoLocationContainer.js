@@ -115,6 +115,26 @@ class GeoLocation extends Component {
     const fifteenAndLess = theOthers.filter(other => {
       return other.distanceOther < 15;
     });
+    const greenLeavesList = theOthers.filter(user => {
+      return user.distanceOther > 21;
+    });
+    const orangeLeavesList = theOthers.filter(user => {
+      return user.distanceOther < 21 && user.distanceOther > 15;
+    });
+    const redLeavesList = theOthers.filter(user => {
+      return user.distanceOther < 16;
+    });
+    const leaves = {
+      green: greenLeavesList,
+      orange: orangeLeavesList,
+      red: redLeavesList
+    };
+    const thisUser = this.props.signedUpUsers.find(user => {
+      return user.id === this.props.loggedInUser.userId;
+    });
+    const thisUserLocation = [this.state.latitude, this.state.longitude];
+    console.log("this user", thisUser);
+
     if (!userWithId) {
       return (
         <p class="button">
@@ -137,13 +157,18 @@ class GeoLocation extends Component {
           />
           <div className="counter">
             <img src="leaf-green.png" hspace="250" />
+            {leaves.green.length}
             <img src="leaf-orange.png" hspace="250" />
+            {leaves.orange.length}
             <img src="leaf-red.png" hspace="250" />
+            {leaves.red.length}
           </div>
           <MyMap
-            theOthers={theOthers}
-            allCoordinates={arrayOfCoordinates}
-            state={this.state}
+            //theOthers={theOthers}
+            leaves={leaves}
+            thisUser={thisUser}
+            thisUserLocation={thisUserLocation}
+            thisSocket={userWithId}
           />
         </div>
       );
@@ -153,9 +178,10 @@ class GeoLocation extends Component {
 
 const mapDispatchToProps = {};
 
-function mapStateToProps(state) {
+function mapStateToProps(ReduxState) {
   return {
-    loggedInUser: state.loggedInUser
+    loggedInUser: ReduxState.loggedInUser,
+    signedUpUsers: ReduxState.signedUpUsers
   };
 }
 
