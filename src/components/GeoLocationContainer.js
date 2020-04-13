@@ -135,9 +135,9 @@ class GeoLocation extends Component {
     const thisUserLocation = [this.state.latitude, this.state.longitude];
     console.log("this user", thisUser);
 
-    if (!userWithId) {
+    if (!userWithId && this.props.loggedInUser.jwt) {
       return (
-        <p class="button">
+        <p className="button">
           <Button onClick={this.send} color="white">
             start tracking
           </Button>
@@ -145,23 +145,20 @@ class GeoLocation extends Component {
       );
     } else {
       return (
-        <div class="geolocationdiv">
-          <h2 class="instruction">
-            get your coordinates and find how close you are to others
-          </h2>{" "}
-          <p class="position">{this.state.message}</p>
+        <div className="geolocationdiv">
+          <p className="position">{this.state.message}</p>
           <WarningContainer
             allCoordinates={arrayOfCoordinates}
             userId={this.state.userId}
             fifteenAndLess={fifteenAndLess}
           />
           <div className="counter">
-            <img src="leaf-green.png" hspace="250" />
-            {leaves.green.length}
-            <img src="leaf-orange.png" hspace="250" />
-            {leaves.orange.length}
-            <img src="leaf-red.png" hspace="250" />
-            {leaves.red.length}
+            <img src="leaf-green.png" hspace="100" />
+            <h1>{leaves.green.length}</h1>
+            <img src="leaf-orange.png" hspace="100" />
+            <h1>{leaves.orange.length}</h1>
+            <img src="leaf-red.png" hspace="100" />
+            <h1>{leaves.red.length}</h1>
           </div>
           <MyMap
             //theOthers={theOthers}
@@ -169,6 +166,7 @@ class GeoLocation extends Component {
             thisUser={thisUser}
             thisUserLocation={thisUserLocation}
             thisSocket={userWithId}
+            mapStart={this.state}
           />
         </div>
       );

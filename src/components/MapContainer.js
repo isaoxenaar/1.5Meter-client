@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Map, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
 import L from "leaflet";
-import worldGeoJSON from "geojson-world-map";
+import Button from "muicss/lib/react/button";
 
 const LeafIcon = L.Icon.extend({
   options: {
@@ -24,20 +24,35 @@ export const redIcon = new LeafIcon({
 export const orangeIcon = new LeafIcon({
   iconUrl: process.env.PUBLIC_URL + "leaf-red.png"
 });
-export const userIcon = new LeafIcon({
-  iconUrl: process.env.PUBLIC_URL + "isa.jpg",
-  shadowUrl: ""
-});
 
 class MapContainer extends Component {
+  state = {
+    tileLayerUrl:
+      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    tileLayerAttribution:
+      "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
+  };
+  mapGrey = () => {
+    this.setState({
+      tileLayerUrl:
+        "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+      tileLayerAttribution: "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ"
+    });
+  };
+  mapPhoto = () => {
+    this.setState({
+      tileLayerAttribution:
+        "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+      tileLayerUrl:
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+    });
+  };
   componentDidMount;
   render() {
-    const position = [this.props.state.latitude, this.props.state.longitude];
-    // const evensList = this.props.allCoordinates.filter(
-    //   (element, index, array) => {
-    //     return index % 2 === 0;
-    //   }
-    // );
+    const position = [
+      this.props.mapStart.latitude,
+      this.props.mapStart.longitude
+    ];
     console.log("the red, green and orange in map", this.props.leaves);
     const leaves = this.props.leaves;
     const redPopUps = leaves.red.map(leave => {
@@ -58,9 +73,9 @@ class MapContainer extends Component {
       return (
         <Marker icon={orangeIcon} position={position}>
           <Popup>
-            hi there!
+            Hej,
             <br />
-            watch out, youre getting kind of close to this person{" "}
+            watch out, you're getting kind of close to this person{" "}
           </Popup>
         </Marker>
       );
@@ -80,10 +95,7 @@ class MapContainer extends Component {
     });
     console.log("userwithid", this.props.userWithId);
     const youPopUp = (
-      <Marker
-        icon={this.props.thisUser.pictureUrl}
-        position={this.props.thisUserLocation}
-      >
+      <Marker position={this.props.thisUserLocation}>
         <Popup>
           this is you, {this.props.thisUser.username}!
           <br />
@@ -92,24 +104,17 @@ class MapContainer extends Component {
       </Marker>
     );
     return (
-      <div class="map">
+      <div className="map">
+        <Button onClick={this.mapGrey}>grey vector map</Button>
+        <Button onClick={this.mapPhoto}>photographic map</Button>
         <Map
           center={position}
-          zoom={this.props.state.zoom}
+          zoom={this.props.mapStart.zoom}
           style={{ width: "100%", height: "900px" }}
         >
           <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <GeoJSON
-            data={worldGeoJSON}
-            style={() => ({
-              color: "#4a83ec",
-              weight: 0.5,
-              fillColor: "#D9B382",
-              fillOpacity: 0.5
-            })}
+            attribution={this.state.tileLayerAttribution}
+            url={this.state.tileLayerUrl}
           />
           {redPopUps}
           {greenPopUps}
@@ -121,10 +126,10 @@ class MapContainer extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(ReduxState) {
   return {
-    loggedInUser: state.loggedInUser,
-    sigedUpUsers: state.sigedUpUsers
+    loggedInUser: ReduxState.loggedInUser,
+    signedUpUsers: ReduxState.signedUpUsers
   };
 }
 

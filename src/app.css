@@ -5,16 +5,28 @@ geolocationdiv
 signup
 
 */
+.warnings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(8, 0, 85);
+}
+.logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .warningsList {
-  color: rgb(241, 64, 20);
+  color: rgb(8, 0, 85);
 }
 .counter {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: rgb(255, 255, 255);
 }
 .name {
-  color: rgb(241, 64, 20);
+  color: rgb(8, 0, 85);
 }
 .welcome {
   display: flex;
@@ -127,7 +139,7 @@ signup
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(255, 62, 4);
+  color: rgb(8, 0, 85);
 }
 
 .position {

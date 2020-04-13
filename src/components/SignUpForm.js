@@ -7,7 +7,7 @@ import Button from "muicss/lib/react/button";
 export default class SignUpForm extends React.Component {
   render() {
     return (
-      <div class="signupdiv">
+      <div className="signupdiv">
         <form onSubmit={this.props.onSubmit}>
           <label>
             Signup

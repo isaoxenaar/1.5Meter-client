@@ -9,8 +9,6 @@ class LoginContainer extends React.Component {
   message = "this user is not signedUp, sign up first";
   onSubmit = event => {
     event.preventDefault();
-    // const signedUpmap
-    // if()
     this.props.checkLogin(this.state);
     this.setState({
       email: "",

@@ -17,19 +17,20 @@ class WarningContainer extends Component {
     console.log("fifteenandless", this.props.fifteenAndLess.length);
     if (this.props.fifteenAndLess.length === 0)
       return (
-        <div class="awesome">
+        <div className="awesome">
           <h1>You are doing awesome at keeping a distance</h1>
         </div>
       );
     else {
       this.props.fifteenAndLess.map(user => {
+        console.log("user in fifteen", user);
         const now = Date.now();
         const position = [user.locationOther[0], user.locationOther[1]];
         this.onWarning(now, position);
       });
       return (
-        <div class="warningdiv">
-          <h1 class="toclose">TO CLOSE STEP BACK</h1>
+        <div className="warningdiv">
+          <h1 className="toclose">TO CLOSE STEP BACK</h1>
           <Sound
             url={process.env.PUBLIC_URL + "/cant-touch-this.mp3"}
             playStatus="PLAYING"

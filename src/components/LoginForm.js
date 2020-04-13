@@ -1,12 +1,9 @@
 import React from "react";
 import Button from "muicss/lib/react/button";
-
-//add reset button
-
 export default class LoginForm extends React.Component {
   render() {
     return (
-      <div class="logindiv">
+      <div className="logindiv">
         <form onSubmit={this.props.onSubmit}>
           <label>
             Login{" "}

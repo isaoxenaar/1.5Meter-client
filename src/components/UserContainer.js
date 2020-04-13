@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Button from "muicss/lib/react/button";
 import ReactPlayer from "react-player";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import { getUsers } from "../actions/allUsersAction";
 import { getWarnings } from "../actions/allWarningsAction";
-import { connect } from "react-redux";
 
 class UserContainer extends Component {
   componentDidMount = () => {
@@ -24,33 +25,46 @@ class UserContainer extends Component {
       }
     });
     const warnings = warningsThisUser.map(warning => {
-      var d = Date(warning.time);
-      const a = d.toString();
+      const time = Date(warning.time);
+      const writtenDate = time.toString();
       return (
         <li key={warning.id} className="singleWarning">
-          {a} {warning.latitude}, {warning.longitude}
+          {writtenDate} {warning.latitude}, {warning.longitude}
         </li>
       );
     });
     const list = <ul className="warningsList">{warnings}</ul>;
     if (!user) {
-      return <Button color="white"> go home and log in </Button>;
+      return (
+        <Link className="link" to="/">
+          <Button color="white"> go home and log in </Button>
+        </Link>
+      );
     } else {
       return (
         <main>
           <h1 className="usertitle">ANDERHALVE METER</h1>
-          <img className="img" src={user.pictureUrl} alt="not found" />
+          <img
+            className="img"
+            src={user.profileUrl}
+            style={{ width: "200px", height: "200px" }}
+            alt="not found"
+          />
           <h2 className="user">
-            Dear {user.username}, these are the warnings you got since
+            Dear {user.username}, t hese are the warnings you got since
             {user.createdAt}. Please be carefull. Step back from the people
             around you. Even if others don't keep a distance, be the one to walk
             away or say something. Stop covid-19 from spreading like a wildfire,
-            protect the people you love.
+            protect the people you love. Read the instructions from the
+            government here. Watch and read the caretakers stories here.
           </h2>
           <p className="usermain">
             <Button color="white"> warnings </Button>
           </p>
-          {list}
+          <div className="warnings">
+            <h2>WARNINGS</h2>
+            <h4>{list}</h4>
+          </div>
           <p className="video">
             <ReactPlayer url={process.env.PUBLIC_URL + "tequila.mp4"} playing />
           </p>

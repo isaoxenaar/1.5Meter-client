@@ -7,17 +7,18 @@ import HomeContainer from "./HomeContainer";
 
 class StartContainer extends Component {
   componentDidMount() {
-    document.body.style.backgroundColor = "white";
+    document.body.style.backgroundImage =
+      "url('https://i.pinimg.com/originals/eb/da/14/ebda147fbf109007cfc50936b5ea714c.jpg')";
   }
   render() {
     if (this.props.loggedInUser.jwt) {
       return <Redirect to="/home" component={HomeContainer} />;
     } else {
       return (
-        <main class="start">
-          <h1 class="starttitle">ANDERHALVE METER</h1>
+        <main className="start">
+          <h1 className="starttitle">ANDERHALVE METER</h1>
           <div>
-            <h4 class="introduction">
+            <h4 className="introduction">
               this is a proof of case for an app that makes a noise when two
               device are withing 1.5 meters of each other. right now it only
               measures from 15 meters. It only shows warnings when two
