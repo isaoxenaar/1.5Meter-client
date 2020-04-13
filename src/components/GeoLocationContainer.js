@@ -5,10 +5,10 @@ import WarningContainer from "./WarningContainer";
 import MyMap from "./MapContainer";
 import Button from "muicss/lib/react/button";
 
-export const socketConnection = socketIOClient(
-  "https://ancient-taiga-80457.herokuapp.com/"
-);
-//export const socketConnection = socketIOClient("http://localhost:4001");
+// export const socketConnection = socketIOClient(
+//   "https://ancient-taiga-80457.herokuapp.com/"
+// );
+export const socketConnection = socketIOClient("http://localhost:4001");
 
 function distance(lat1, lon1, lat2, lon2) {
   var R = 6371;
