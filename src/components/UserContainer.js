@@ -51,12 +51,16 @@ class UserContainer extends Component {
             alt="not found"
           />
           <h2 className="user">
-            Dear {user.username}, t hese are the warnings you got since
-            {user.createdAt}. Please be carefull. Step back from the people
-            around you. Even if others don't keep a distance, be the one to walk
-            away or say something. Stop covid-19 from spreading like a wildfire,
-            protect the people you love. Read the instructions from the
-            government here. Watch and read the caretakers stories here.
+            <p>Dear {user.username},</p>
+            <p>
+              these are the warnings you got since
+              {user.createdAt}. Please be carefull. Step back from the people
+              around you. Even if others don't keep a distance, be the one to
+              walk away. Stop covid-19 from spreading, protect the people you
+              love.
+              <Link>Read the instructions from the government here.</Link>
+              <Link>Watch and read the caretakers stories here.</Link>
+            </p>
           </h2>
           <p className="usermain">
             <Button color="white"> warnings </Button>

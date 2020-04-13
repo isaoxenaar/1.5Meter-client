@@ -1,68 +1,16 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ANDERHQALVE METER (1.5 METERS)
 
-## Available Scripts
+THIS IS A PROOF OF CASE APP, A GRADUATION PROJECT FOR CODAISSEUR ACADEMY 2020.
+~~~~ the app is not able to measure the exact distance between to users yet(because this is pretty challenging, the app shows a case for which it should be possible to be able to define the distance between to devices exactly, and it shows that it woudl be usefull to be able to now the exact location of a device at all times) ~~~~~
 
-In the project directory, you can run:
+The app tracks the logged in users locations and measures the distance between users.
+The app uses geoloaction to measure the distance between users, this technique has to be altered to achieve accurate results. To achieve accurate results is the challenge this app is facing now.
+The app gives a warning to the users when they are less than 1.5 meters apart from each other.
+The app shows reliable information sources about covid-19, like RIVM, Op1-talkshow and NPOstories.
+The app uses video's and songs to reach its users in a friendly way.
+The goal of this app is to make people realize that the thing they want to do is keep a distance, and that all the rules are for their own best interest.
 
-### `npm start`
+The app was made with React and JavaScript.
+It is deployed with heroku and netlify.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+www.anderhalvemeter.netlify.com.app
