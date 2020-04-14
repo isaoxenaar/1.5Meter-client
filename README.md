@@ -1,4 +1,4 @@
-ANDERHQALVE METER (1.5 METERS)
+ANDERHALVE METER (1.5 METERS)
 
 THIS IS A PROOF OF CASE APP, A GRADUATION PROJECT FOR CODAISSEUR ACADEMY 2020.
 ~~~~ the app is not able to measure the exact distance between to users yet(because this is pretty challenging, the app shows a case for which it should be possible to be able to define the distance between to devices exactly, and it shows that it woudl be usefull to be able to now the exact location of a device at all times) ~~~~~
@@ -13,4 +13,4 @@ The goal of this app is to make people realize that the thing they want to do is
 The app was made with React and JavaScript.
 It is deployed with heroku and netlify.
 
-www.anderhalvemeter.netlify.com.app
+www.anderhalvemeter.netlify.com.app (will be up from wednesday 17 april 2020)

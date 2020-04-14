@@ -10,7 +10,7 @@ class UserContainer extends Component {
   componentDidMount = () => {
     this.props.getUsers();
     this.props.getWarnings();
-    document.body.style.backgroundColor = "bisque";
+    document.body.style.backgroundImage = "";
   };
 
   render() {
@@ -50,23 +50,24 @@ class UserContainer extends Component {
             style={{ width: "200px", height: "200px" }}
             alt="not found"
           />
-          <h2 className="user">
-            <p>Dear {user.username},</p>
-            <p>
+          <div className="user">
+            <h2 style={{ color: "red" }}>Dear {user.username},</h2>
+            <h3>
               these are the warnings you got since
-              {user.createdAt}. Please be carefull. Step back from the people
-              around you. Even if others don't keep a distance, be the one to
-              walk away. Stop covid-19 from spreading, protect the people you
-              love.
-              <Link>Read the instructions from the government here.</Link>
-              <Link>Watch and read the caretakers stories here.</Link>
-            </p>
-          </h2>
+              <h3 style={{ color: "red" }}>{user.createdAt}</h3> Please be
+              carefull. Step back from the people around you. If others don't
+              keep a distance, be the one to walk away. Stop covid-19 from
+              spreading, protect the people you love.
+            </h3>
+          </div>
           <p className="usermain">
-            <Button color="white"> warnings </Button>
+            <Button color="white"> read governemnt instructions</Button>
+            <Button color="white">
+              {" "}
+              see what happens in hospitals in nederland
+            </Button>
           </p>
           <div className="warnings">
-            <h2>WARNINGS</h2>
             <h4>{list}</h4>
           </div>
           <p className="video">

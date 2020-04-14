@@ -6,11 +6,10 @@ import SignUpContainer from "./SignUpContainer";
 import HomeContainer from "./HomeContainer";
 
 class StartContainer extends Component {
-  componentDidMount() {
+  componentDidMount() {}
+  render() {
     document.body.style.backgroundImage =
       "url('https://i.pinimg.com/originals/eb/da/14/ebda147fbf109007cfc50936b5ea714c.jpg')";
-  }
-  render() {
     if (this.props.loggedInUser.jwt) {
       return <Redirect to="/home" component={HomeContainer} />;
     } else {

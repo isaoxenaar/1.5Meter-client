@@ -5,6 +5,11 @@ geolocationdiv
 signup
 
 */
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .warnings {
   display: flex;
   justify-content: center;
@@ -17,7 +22,7 @@ signup
   align-items: center;
 }
 .warningsList {
-  color: rgb(8, 0, 85);
+  color: red;
 }
 .counter {
   display: flex;
@@ -46,9 +51,6 @@ signup
   align-items: center;
 }
 .user {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: rgb(255, 255, 255);
 }
 .usertitle {

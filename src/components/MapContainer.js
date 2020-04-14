@@ -105,8 +105,10 @@ class MapContainer extends Component {
     );
     return (
       <div className="map">
-        <Button onClick={this.mapGrey}>grey vector map</Button>
-        <Button onClick={this.mapPhoto}>photographic map</Button>
+        <div className="buttons">
+          <Button onClick={this.mapGrey}>grey vector map</Button>
+          <Button onClick={this.mapPhoto}>photographic map</Button>
+        </div>
         <Map
           center={position}
           zoom={this.props.mapStart.zoom}
