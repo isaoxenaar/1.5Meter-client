@@ -9,7 +9,7 @@ import LogOut from "./LogOutContainer";
 class HomeContainer extends Component {
   componentDidMount = () => {
     this.props.getUsers();
-    document.body.style.backgroundColor = "white";
+    document.body.style.backgroundImage = "";
   };
 
   render() {
