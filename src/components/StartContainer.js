@@ -6,10 +6,7 @@ import SignUpContainer from "./SignUpContainer";
 import HomeContainer from "./HomeContainer";
 
 class StartContainer extends Component {
-  componentDidMount() {}
   render() {
-    document.body.style.backgroundImage =
-      "url('https://i.pinimg.com/originals/eb/da/14/ebda147fbf109007cfc50936b5ea714c.jpg')";
     if (this.props.loggedInUser.jwt) {
       return <Redirect to="/home" component={HomeContainer} />;
     } else {
@@ -32,6 +29,7 @@ class StartContainer extends Component {
             </h4>
             <SignUpContainer /> <LoginContainer />
           </div>
+          <p className="anderhalf"> ! 1.5 ! </p>
         </main>
       );
     }

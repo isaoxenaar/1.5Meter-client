@@ -75,7 +75,7 @@ signup
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(255, 255, 255);
+  color: rgb(255, 72, 0);
 }
 .logindiv {
   display: flex;
@@ -102,6 +102,14 @@ signup
 .home {
   background-color: bisque;
 }
+.anderhalf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 72, 0);
+  font-size: 8cm;
+}
+
 .hometitle {
   display: flex;
   justify-content: center;
