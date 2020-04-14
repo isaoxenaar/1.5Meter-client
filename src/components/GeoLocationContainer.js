@@ -138,7 +138,7 @@ class GeoLocation extends Component {
     if (!userWithId && this.props.loggedInUser.jwt) {
       return (
         <p className="button">
-          <Button onClick={this.send} color="white">
+          <Button onClick={this.send} color="danger">
             start tracking
           </Button>
         </p>
