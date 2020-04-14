@@ -137,11 +137,22 @@ class GeoLocation extends Component {
 
     if (!userWithId && this.props.loggedInUser.jwt) {
       return (
-        <p className="button">
-          <Button onClick={this.send} color="danger">
-            start tracking
-          </Button>
-        </p>
+        <div>
+          {" "}
+          <p className="button">
+            <Button onClick={this.send} color="danger">
+              start tracking
+            </Button>
+          </p>
+          <MyMap
+            //theOthers={theOthers}
+            leaves={leaves}
+            thisUser={thisUser}
+            thisUserLocation={thisUserLocation}
+            thisSocket={userWithId}
+            mapStart={this.state}
+          />
+        </div>
       );
     } else {
       return (
