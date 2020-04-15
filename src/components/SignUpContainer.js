@@ -6,20 +6,20 @@ import SignUpForm from "./SignUpForm";
 class SignUpContainer extends React.Component {
   state = { username: "", pictureUrl: "", email: "", password: "" };
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     event.preventDefault();
     this.props.addUser(this.state);
     this.setState({
       username: "",
       profileUrl: "",
       email: "",
-      password: ""
+      password: "",
     });
   };
 
-  onChange = event => {
+  onChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Map, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
+import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import Button from "muicss/lib/react/button";
 
@@ -11,18 +11,18 @@ const LeafIcon = L.Icon.extend({
     shadowSize: [50, 64],
     iconAnchor: [22, 94],
     shadowAnchor: [4, 62],
-    popupAnchor: [-3, -76]
-  }
+    popupAnchor: [-3, -76],
+  },
 });
 
 export const greenIcon = new LeafIcon({
-  iconUrl: process.env.PUBLIC_URL + "leaf-green.png"
+  iconUrl: process.env.PUBLIC_URL + "leaf-green.png",
 });
 export const redIcon = new LeafIcon({
-  iconUrl: process.env.PUBLIC_URL + "leaf-red.png"
+  iconUrl: process.env.PUBLIC_URL + "leaf-red.png",
 });
 export const orangeIcon = new LeafIcon({
-  iconUrl: process.env.PUBLIC_URL + "leaf-red.png"
+  iconUrl: process.env.PUBLIC_URL + "leaf-red.png",
 });
 
 class MapContainer extends Component {
@@ -30,13 +30,13 @@ class MapContainer extends Component {
     tileLayerUrl:
       "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
     tileLayerAttribution:
-      "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
+      "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
   };
   mapGrey = () => {
     this.setState({
       tileLayerUrl:
         "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
-      tileLayerAttribution: "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ"
+      tileLayerAttribution: "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ",
     });
   };
   mapPhoto = () => {
@@ -44,18 +44,18 @@ class MapContainer extends Component {
       tileLayerAttribution:
         "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
       tileLayerUrl:
-        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
     });
   };
   componentDidMount;
   render() {
     const position = [
       this.props.mapStart.latitude,
-      this.props.mapStart.longitude
+      this.props.mapStart.longitude,
     ];
     console.log("the red, green and orange in map", this.props.leaves);
     const leaves = this.props.leaves;
-    const redPopUps = leaves.red.map(leave => {
+    const redPopUps = leaves.red.map((leave) => {
       const position = [leave.locationOther[0], leave.locationOther[1]];
       return (
         <Marker icon={redIcon} position={position}>
@@ -68,7 +68,7 @@ class MapContainer extends Component {
       );
     });
 
-    const orangePopUps = leaves.orange.map(leave => {
+    const orangePopUps = leaves.orange.map((leave) => {
       const position = [leave.locationOther[0], leave.locationOther[1]];
       return (
         <Marker icon={orangeIcon} position={position}>
@@ -81,7 +81,7 @@ class MapContainer extends Component {
       );
     });
 
-    const greenPopUps = leaves.green.map(leave => {
+    const greenPopUps = leaves.green.map((leave) => {
       const position = [leave.locationOther[0], leave.locationOther[1]];
       return (
         <Marker icon={greenIcon} position={position}>
@@ -131,7 +131,7 @@ class MapContainer extends Component {
 function mapStateToProps(ReduxState) {
   return {
     loggedInUser: ReduxState.loggedInUser,
-    signedUpUsers: ReduxState.signedUpUsers
+    signedUpUsers: ReduxState.signedUpUsers,
   };
 }
 

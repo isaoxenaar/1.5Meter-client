@@ -1,26 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updateTicket } from "../actions/updateTicketAction";
+import { updateUser } from "../actions/updateUserAction";
 
 class EditProfileForm extends Component {
   state = {
-    logo: "",
-    price: "",
-    description: ""
+    username: "",
+    profileUrl: "",
   };
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     event.preventDefault();
     const update = {
-      logo: this.state.logo,
-      price: this.state.price,
-      description: this.state.description
+      username: this.state.username,
+      profileUrl: this.state.profileUrl,
     };
 
-    this.props.updateTicket(this.props.ticketId, update);
+    this.props.updateUser(this.props.loggedInUser.userId, update);
   };
 
-  onChange = event => {
+  onChange = (event) => {
     const { value, name } = event.target;
     const update = { [name]: value };
 
@@ -35,37 +33,27 @@ class EditProfileForm extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <div>
-          Logo Url{" "}
+          Username
           <input
             type="text"
-            placeholder="logo"
-            name="logo"
-            onChange={this.onChange}
-            value={this.state.logo}
-          />
-        </div>
-        <div>
-          Price{" "}
-          <input
-            type="text"
-            placeholder="price"
-            name="price"
+            placeholder="username"
+            name="username"
             value={this.state.price}
             onChange={this.onChange}
           />
         </div>
         <div>
-          Description{" "}
+          Profile Picture Url
           <input
             type="text"
-            placeholder="description"
-            name="description"
-            value={this.state.description}
+            placeholder="profileUrl"
+            name="profileUrl"
+            value={this.state.profileUrl}
             onChange={this.onChange}
           />
         </div>
         <div>
-          <button>Edit Ticket</button>
+          <button>Edit Profile</button>
         </div>
         <button onClick={this.reset}>reset</button>
       </form>
@@ -75,16 +63,13 @@ class EditProfileForm extends Component {
 
 function mapStateToProps(state) {
   return {
-    comments: state.comments,
-    tickets: state.tickets,
-    events: state.events,
     signedUpUsers: state.signedUpUsers,
-    loggedInUser: state.loggedInUser
+    loggedInUser: state.loggedInUser,
   };
 }
 
 const mapDispatchToProps = {
-  updateTicket
+  updateUser,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditTicketForm);
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfileForm);

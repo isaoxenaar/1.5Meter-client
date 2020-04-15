@@ -5,24 +5,36 @@ geolocationdiv
 signup
 
 */
+
+.anderhalf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 72, 0);
+  font-size: 8cm;
+}
+.awesome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .buttons {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.warnings {
+
+.counter {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(8, 0, 85);
-}
-.logout {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.warningsList {
-  color: red;
+  color: rgb(255, 255, 255);
 }
 .counter {
   display: flex;
@@ -30,54 +42,57 @@ signup
   align-items: center;
   color: rgb(255, 255, 255);
 }
-.name {
-  color: rgb(8, 0, 85);
+.home {
+  background-color: bisque;
 }
-.welcome {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgb(255, 255, 255);
-}
-
-.video {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.usermain {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.user {
-  color: rgb(255, 255, 255);
-}
-.usertitle {
+.hometitle {
   display: flex;
   justify-content: center;
   align-items: center;
   color: rgb(255, 255, 255);
   font-size: 2cm;
 }
-.link {
+.instruction {
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.whitebar {
-  border-style: solid;
-  border-color: rgb(255, 255, 255);
-  border-width: 1cm;
-  color: rgb(255, 255, 255);
 }
 .introduction {
   display: flex;
   justify-content: center;
   align-items: center;
   color: rgb(255, 72, 0);
+  margin-right: 250px;
+  margin-left: 250px;
 }
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .logindiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+.logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.map {
+  border-style: dotted;
+  border-color: rgb(255, 255, 255);
+  border-width: 1cm;
+}
+.name {
+  color: rgb(8, 0, 85);
+}
+
+.position {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,6 +107,7 @@ signup
 .start {
   background-color: bisque;
 }
+
 .starttitle {
   display: flex;
   justify-content: center;
@@ -99,31 +115,12 @@ signup
   color: rgb(255, 255, 255);
   font-size: 2cm;
 }
-.home {
-  background-color: bisque;
-}
-.anderhalf {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgb(255, 72, 0);
-  font-size: 8cm;
-}
-
-.hometitle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.user {
   color: rgb(255, 255, 255);
-  font-size: 2cm;
+  margin-left: 300px;
+  margin-right: 50px;
 }
-.map {
-  border-style: dotted;
-  border-color: rgb(255, 255, 255);
-  border-width: 1cm;
-}
-.instruction {
-  color: white;
+.usermain {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,16 +131,24 @@ signup
   align-items: center;
   color: rgb(255, 255, 255);
 }
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.awesome {
+.usertitle {
   display: flex;
   justify-content: center;
   align-items: center;
   color: rgb(255, 255, 255);
+  font-size: 2cm;
+}
+
+.video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.warnings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(8, 0, 85);
 }
 .warningdiv {
   display: flex;
@@ -151,8 +156,10 @@ signup
   align-items: center;
   color: rgb(8, 0, 85);
 }
-
-.position {
+.warningsList {
+  color: red;
+}
+.welcome {
   display: flex;
   justify-content: center;
   align-items: center;

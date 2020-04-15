@@ -14,22 +14,27 @@ class StartContainer extends Component {
         <main className="start">
           <h1 className="starttitle">ANDERHALVE METER</h1>
           <div>
-            <h4 className="introduction">
-              this is a proof of case for an app that makes a noise when two
-              device are withing 1.5 meters of each other. right now it only
-              measures from 15 meters. It only shows warnings when two
-              smartphones are to close and does not publish personal info to
-              other users. The app keeps each user anonymous to the other users,
-              except to the developer who will only use the location details to
-              make the app function. The apps aim is to stop the covid-19 virus
-              from spreading. We will not use your info for anything other than
-              to inform you of the space between you and the other. Signup and
-              Login to start using the app. If you log out the app stops
-              tracking your location. You can log out by closing the browser.
-            </h4>
+            <h3 className="introduction">
+              This is a proof of case for an app that makes a noise when two
+              device are within 1.5 meters of each other. Right now it only
+              measures from 15 meters. The goal is to make it accurate for 1.5
+              meters. It shows warnings and sings a warningsong when two
+              smartphones are to close to each other.
+              <br />
+              The app does not publish personal info to other users. <br />
+              The app keeps each user anonymous to the other users, but not to
+              the developer who will only use the location details to make the
+              app function. We will not use your info for anything other than to
+              inform you of the space between you and the other.
+              <br />
+              The apps aim is to help stop the covid-19 virus from spreading.{" "}
+              <br />
+              Signup and Login to start using the app. If you log out the app
+              stops tracking your location.
+            </h3>
             <SignUpContainer /> <LoginContainer />
           </div>
-          <p className="anderhalf"> ! 1.5 ! </p>
+          <p className="anderhalf"> {`<      1.5     > `}</p>
         </main>
       );
     }
@@ -37,7 +42,7 @@ class StartContainer extends Component {
 }
 function mapStateToProps(state) {
   return {
-    loggedInUser: state.loggedInUser
+    loggedInUser: state.loggedInUser,
   };
 }
 export default connect(mapStateToProps)(StartContainer);

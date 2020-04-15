@@ -10,7 +10,6 @@ export default class SignUpForm extends React.Component {
       <div className="signupdiv">
         <form onSubmit={this.props.onSubmit}>
           <label>
-            Signup
             <input
               placeholder="email"
               name="email"
@@ -39,6 +38,7 @@ export default class SignUpForm extends React.Component {
             />{" "}
           </label>
           <label>
+            pick a profilepic, use a url
             <input
               placeholder="profileUrl"
               name="profileUrl"
@@ -47,7 +47,7 @@ export default class SignUpForm extends React.Component {
               type="text"
             />{" "}
           </label>
-          <Button color="white">Sign Up</Button>
+          <Button color="white">sign Up</Button>
         </form>
       </div>
     );

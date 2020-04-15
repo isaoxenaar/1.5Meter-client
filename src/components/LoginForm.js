@@ -6,7 +6,6 @@ export default class LoginForm extends React.Component {
       <div className="logindiv">
         <form onSubmit={this.props.onSubmit}>
           <label>
-            Login{" "}
             <input
               placeholder="email"
               name="email"
