@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Button from "muicss/lib/react/button";
 import { updateUser } from "../actions/updateUserAction";
 
 class EditProfileForm extends Component {
@@ -16,6 +17,10 @@ class EditProfileForm extends Component {
     };
 
     this.props.updateUser(this.props.loggedInUser.userId, update);
+    this.setState({
+      username: "",
+      profileUrl: "",
+    });
   };
 
   onChange = (event) => {
@@ -26,24 +31,22 @@ class EditProfileForm extends Component {
   };
 
   reset = () => {
-    this.setState({ logo: "", price: "", description: "" });
+    this.setState({ username: "", profileUrl: "" });
   };
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form className="editForm" onSubmit={this.onSubmit}>
         <div>
-          Username
           <input
             type="text"
             placeholder="username"
             name="username"
-            value={this.state.price}
+            value={this.state.username}
             onChange={this.onChange}
           />
         </div>
         <div>
-          Profile Picture Url
           <input
             type="text"
             placeholder="profileUrl"
@@ -53,9 +56,9 @@ class EditProfileForm extends Component {
           />
         </div>
         <div>
-          <button>Edit Profile</button>
+          <Button>Edit Profile</Button>
         </div>
-        <button onClick={this.reset}>reset</button>
+        {/* <Button onClick={this.reset}>reset</Button> */}
       </form>
     );
   }

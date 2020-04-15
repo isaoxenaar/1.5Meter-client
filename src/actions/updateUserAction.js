@@ -13,7 +13,9 @@ function changeUser(newUser) {
 export function updateUser(id, update) {
   return async function (dispatch) {
     try {
-      const response = await superagent.put(`${baseUrl}/user`).send(update);
+      const response = await superagent
+        .put(`${baseUrl}/user/${id}`)
+        .send(update);
 
       const action = changeUser(response.body);
 

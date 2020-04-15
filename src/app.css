@@ -42,6 +42,12 @@ signup
   align-items: center;
   color: rgb(255, 255, 255);
 }
+.editForm {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  color: rgb(255, 255, 255);
+}
 .home {
   background-color: bisque;
 }

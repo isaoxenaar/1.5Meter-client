@@ -55,7 +55,7 @@ class UserContainer extends Component {
           <img
             className="img"
             src={user.profileUrl}
-            style={{ width: "200px", height: "200px" }}
+            style={{ width: "200px", height: "250px" }}
             alt="not found"
           />
           <EditProfileForm />
@@ -86,9 +86,10 @@ class UserContainer extends Component {
             </div>
           )}
           <p className="usermain">
-            <Button color="white"> read governemnt instructions</Button>
+            <a href="https://www.rivm.nl/">
+              <Button color="white"> read government instructions</Button>
+            </a>{" "}
             <Button color="white">
-              {" "}
               see what happens in hospitals in nederland
             </Button>
           </p>
