@@ -24,8 +24,7 @@ class HomeContainer extends Component {
         <main className="home">
           <h1 className="hometitle">ANDERHALVE METER</h1>
           <h2 className="welcome">
-            Hej <h2 className="name">{user.username}</h2>, stay of my radar
-            today
+            Hej {user.username}, stay of my radar today
           </h2>
           <Link className="link" to="/dashboard">
             <Button color="white">this is you!</Button>
