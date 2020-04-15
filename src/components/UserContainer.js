@@ -58,7 +58,7 @@ class UserContainer extends Component {
             style={{ width: "200px", height: "200px" }}
             alt="not found"
           />
-          {/* <EditProfileForm /> */}
+          <EditProfileForm />
           <div className="user">
             <h2 style={{ color: "red" }}>Dear {user.username},</h2>
             <h3>

@@ -13,7 +13,8 @@ class HomeContainer extends Component {
   };
 
   render() {
-    const user = this.props.signedUpUsers.find(user => {
+    console.log("history", this.props.history);
+    const user = this.props.signedUpUsers.find((user) => {
       return user.id == this.props.loggedInUser.userId;
     });
     if (!user) {
@@ -30,7 +31,7 @@ class HomeContainer extends Component {
             <Button color="white">this is you!</Button>
           </Link>
           <p className="logout">
-            <LogOut />
+            <LogOut history={this.props.history} />
           </p>
           <GeoLocation />
         </main>
@@ -44,7 +45,7 @@ const mapDispatchToProps = { getUsers };
 function mapStateToProps(state) {
   return {
     loggedInUser: state.loggedInUser,
-    signedUpUsers: state.signedUpUsers
+    signedUpUsers: state.signedUpUsers,
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);

@@ -1,18 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import Button from "muicss/lib/react/button";
 import StartContainer from "./StartContainer";
 import { logout } from "../actions/loginAction";
 
 class LogOut extends Component {
-  state = {
-    logOut: this.button1,
-  };
-
   logOut = () => {
     this.props.logout();
-    return <Redirect to="/" component={StartContainer} />;
+    this.props.history.push("/");
     // const button2 = (
     //   <Link className="link" to="/">
     //     <Button color="white"> go home and log in </Button>
@@ -26,7 +21,6 @@ class LogOut extends Component {
   render() {
     return (
       <div>
-        {this.state.logOut}
         <Button onClick={this.logOut}>Log out and stop tracking me</Button>
       </div>
     );
