@@ -34,6 +34,7 @@ class StartContainer extends Component {
             </h3>
             <SignUpContainer /> <LoginContainer />
           </div>
+          <img src="amsterdammertje-voetplaat-01.png"></img>
           <p className="anderhalf"> {`<      1.5     > `}</p>
         </main>
       );
