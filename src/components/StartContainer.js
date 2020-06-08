@@ -36,10 +36,10 @@ class StartContainer extends Component {
           </div>
           <div className="anderhalf">
             <img src="amsterdammertje-voetplaat-01.png" />
-            <img src="amsterdammertje-voetplaat-01.png" />
             <p>{`<      1.5     > `}</p>
-            <p>{"X X X"}</p>
+            <img src="amsterdammertje-voetplaat-01.png" />
           </div>
+          <p>{"X X X"}</p>
         </main>
       );
     }
